@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Ekonkar Series App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="mission">The mission of my organisation is to remove disparties
+                           among people by solving the mystry of God, abolish religious
+                           fanatism and establish peace in the world We are the creation
+                           of nature . The whole Universe consist of five basic elements -
+                           air , water , earth , fire and space . An old saying Yat Brahmande
+                           tat Pinde proves to be true . Our body is also made up of these five elements .
+                           The life can emerge on any planet where these five elements are present in a
+                           balanced state . It will happen only in a natural way. This process is continuing
+                           for the time immemorial . There are hundeds of galaxies and thousands of planets and
+                           stars in the universe . Matter can neither  be created nor distroyed science says but
+                           changes its form . Similarly Atma changes its body after death. </string>
+
+    <string name="ek_onkar">EK ONKAR , an Audio cassette and CD based on Guru Nanak Dev jis Gurbani , I have taken
+                            only those Compositions which are based on Atma because my search for Truth of life is
+                            Atma Sri Bhagwat Gita is the main source of my re search.</string>
+
+
+    <string name="have">I have converted all my albums to videos and have taken the compositions of Guru Nanak Dev ,
+                        Surdas , Meera Bai and Bulleshah</string>
+
+
+
+
+</resources>

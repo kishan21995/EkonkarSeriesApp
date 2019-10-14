@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_gallery"
+        android:icon="@drawable/ic_photo_black_24dp"
+        android:title="Gallery Amrapali" />
+
+    <item
+        android:id="@+id/navigation_music"
+        android:icon="@drawable/ic_photo_black_24dp"
+        android:title="Music Gallery" />
+
+    <item
+        android:id="@+id/navigation_contact"
+        android:icon="@drawable/ic_phone_black_24dp"
+        android:title="Contact Us" />
+
+
+
+
+
+
+
+</menu>
