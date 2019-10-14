@@ -2,40 +2,38 @@ package marketplace.jpr.com.ekonkarseriesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.ui.AppBarConfiguration;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    ActionBar toolbar;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Spinner spinner;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private TextView eknokarSeries, knowMore;
+    private MenuItem home, galleryAmerpalli, musixGallery;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -44,37 +42,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinner=findViewById(R.id.spinner);
+        toolbar = findViewById(R.id.toolbar);
+         setSupportActionBar(toolbar);
+        spinner = findViewById(R.id.spinner);
 
-        toolbar = getSupportActionBar();
+
+        navigationView = findViewById(R.id.nav_view);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
+        eknokarSeries = headerView.findViewById(R.id.ekonkarSeries);
+        knowMore = headerView.findViewById(R.id.knowMore);
+
+
+        // navigation menuItem
+        Menu menues = navigationView.getMenu();
+        home = menues.findItem(R.id.nav_home);
+        galleryAmerpalli = menues.findItem(R.id.nav_gallery_Amrapalli);
+        musixGallery = menues.findItem(R.id.nav_Music_Gallery);
+
+
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-       // Toolbar toolbar = findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-        //FloatingActionButton fab = findViewById(R.id.fab);
-    /*    fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
 
-        List<String> list=new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add("Select language");
         list.add("English");
         list.add("Hindi");
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("Urdu");
 
 
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
 
@@ -106,20 +106,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -131,32 +134,74 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     //toolbar.setTitle("Home");
-                    Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
                     return true;
                 case R.id.navigation_gallery:
                     //toolbar.setTitle("Gallery Amrapali");
-                    Intent intent1=new Intent(MainActivity.this,GalleryActivity.class);
+                    Intent intent1 = new Intent(MainActivity.this, GalleryActivity.class);
                     startActivity(intent1);
                     return true;
                 case R.id.navigation_music:
                     //toolbar.setTitle("Music Gallery");
-                    Intent intent2=new Intent(MainActivity.this,MusicActivity.class);
+                    Intent intent2 = new Intent(MainActivity.this, MusicActivity.class);
                     startActivity(intent2);
                     return true;
                 case R.id.navigation_contact:
                     //toolbar.setTitle("Contact Us");
-                    Intent intent3=new Intent(MainActivity.this,ContactUsActivity.class);
+                    Intent intent3 = new Intent(MainActivity.this, ContactUsActivity.class);
                     startActivity(intent3);
                     return true;
             }
             return false;
-
-
-
-
-
         }
     };
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment = null;
+        int id = menuItem.getItemId();
+
+        switch (id) {
+            case R.id.nav_home:
+                Intent homeIntent = new Intent(MainActivity.this,HomeActivity.class);
+                startActivity(homeIntent);
+                finish();
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_gallery_Amrapalli:
+                Toast.makeText(this, "Amarpalli", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+
+    }
+
+
+// use only fragment case
+    private void replaceFragment(Fragment fragment) {
+        try {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            if (fragmentManager != null) {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment, "");
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                fragmentTransaction.commitAllowingStateLoss();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*@Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+*/
+
 
 }

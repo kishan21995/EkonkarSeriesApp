@@ -7,205 +7,204 @@
     tools:context=".MainActivity">
 
 
-
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-      <!--  <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+          <androidx.appcompat.widget.Toolbar
+             android:id="@+id/toolbar"
+              android:layout_width="match_parent"
+              android:layout_height="?attr/actionBarSize"
+              android:background="?attr/colorPrimary"
+              app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
- <!--   <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    <!--   <com.google.android.material.floatingactionbutton.FloatingActionButton
+           android:id="@+id/fab"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom|end"
+           android:layout_margin="@dimen/fab_margin"
+           app:srcCompat="@android:drawable/ic_dialog_email" />-->
 
     <include layout="@layout/content_main" />
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="@color/lightGreen"
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/background"
-            android:spinnerMode="dialog"
-            android:layout_width="140dp"
-            android:layout_height="25dp"/>
-
-    </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
-           android:layout_margin="5dp"
-            android:background="@drawable/box1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="About Myself"
-                android:textSize="20dp"
-                android:textColor="@color/darkGreen"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:background="@drawable/new_ekoarseries"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"/>
-
-            <TextView
-                android:text="Santosh Sharma"
-                android:textSize="18dp"
-                android:textColor="@color/darkGreen"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="EK Onkar Series"
-                android:textSize="18dp"
-                android:textColor="@color/darkGreen"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="India"
-                android:textSize="18dp"
-                android:textColor="@color/darkGreen"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/lightGreen"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="140dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/background"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/box1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="About Myself"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:src="@drawable/facebook"
-                    android:layout_marginLeft="100dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/new_ekoarseries" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Santosh Sharma"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="EK Onkar Series"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="India"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="100dp"
+                        android:src="@drawable/facebook" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/twitter" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/youtube" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/linkedin" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/mission"
+                    android:textColor="@color/darkGreen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="EK Onkar"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:src="@drawable/twitter"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/god" />
 
-                <ImageView
-                    android:src="@drawable/youtube"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
-
-                <ImageView
-                    android:src="@drawable/linkedin"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="About Myself"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
 
-            <TextView
-                android:text="@string/mission"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textColor="@color/darkGreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="EK Onkar"
-                android:textSize="20dp"
-                android:textColor="@color/darkGreen"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:background="@drawable/god"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="About Myself"
-                android:textSize="20dp"
-                android:textColor="@color/darkGreen"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
 
         </LinearLayout>
 
+    </ScrollView>
 
-
-    </LinearLayout>
-
-</ScrollView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="?android:attr/windowBackground"
-            app:itemBackground="@color/colorPrimary"
             android:foreground="?attr/selectableItemBackground"
+            app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@android:color/white"
             app:menu="@menu/navigation" />
